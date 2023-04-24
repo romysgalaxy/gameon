@@ -53,7 +53,7 @@
         <div class="content">
           <span class="close" onclick="closeModal()"></span>
           <div class="modal-body">
-            <form id="form" name="reserve" action="index.html" method="get" onsubmit="return validate();">
+            <form id="form" name="reserve" action="index.html" method="get">
               <div class="formData">
                 <label>Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
@@ -122,11 +122,22 @@
                 </label>
                 <br>
               </div>
-              <input class="btn-submit" id="btn-submit" type="submit" value="C'est parti" />
+              <input class="btn-submit" id="btn-submit" type="submit" value="C'est parti"/>
             </form>
           </div>
         </div>
       </div>
+
+      <div class="bground-confirm">
+        <div class="content-confirm">
+          <span class="close" onclick="closeModalConfirm()"></span>
+          <div class="modal-body">
+          </div>
+          <h2>Merci pour votre inscription</h2>
+          <button class="modal-btn-confirm" onclick="closeModalConfirm()">Fermer</button>
+        </div>
+      </div>
+
     </main>
     <footer>
       <p class="copyrights">

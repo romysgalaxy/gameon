@@ -10,6 +10,8 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
+const modalbgConfirm = document.querySelector(".bground-confirm");
+const modalBtnConfirm = document.querySelectorAll(".modal-btn-confirm");
 const formData = document.querySelectorAll(".formData");
 
 // launch modal event
@@ -21,8 +23,11 @@ function launchModal() {
 }
 
 function closeModal() {
-  var modal = document.querySelector('.bground'); // Sélectionnez la fenêtre modale
-  modal.style.display = "none"; // Cacher la fenêtre modale
+  modalbg.style.display = "none"; // Cacher la fenêtre modale
+}
+
+function closeModalConfirm() {
+  modalbgConfirm.style.display = "none"; // Cacher la fenêtre modale
 }
 
 

@@ -16,6 +16,8 @@ const termsCheckbox = document.getElementById('checkbox1');
 const termsCheckboxError = document.getElementById('termsError');
 const newsCheckbox = document.getElementById('checkbox2')
 const submitBtn = document.getElementById('btn-submit');
+const modal = document.querySelector(".bground");
+const modalConfirm = document.querySelector(".bground-confirm");
 
 // add listener for any input changed
 form.addEventListener('submit', (e) => isFormValid(e))
@@ -108,42 +110,10 @@ function isFormValid(e) {
     console.log('termsCheckbox', termsCheckbox.checked)
     console.log('newsCheckbox', newsCheckbox.checked)
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isTournamentQuantityValid && isLocationValid[0] && isTermsCheckboxValid) {
-        console.log('formulaire valide')   
+        modal.style.display = "none"
+        modalConfirm.style.display = "block"
+        console.log('formulaire valide')
+    } else {
+        console.log('formulaire invalide')
     }
 }
-
-//     if (!isChecked) {
-//         locationError.innerHTML = "Please select a location.";
-//         return false;
-//     }
-
-//     locationError.innerHTML = "";
-//     return true;
-// }
-
-// function validateTermsCheckbox() {
-//     const termsCheckboxValue = this.checked;
-//     const termsCheckboxError = document.getElementById('checkbox1Error');
-//     if (!termsCheckboxValue) {
-//         termsCheckboxError.textContent = 'Vous devez accepter les conditions d\'utilisation pour continuer';
-//         // toggleSubmitBtnState(false);
-//         return false;
-//     } else {
-//         termsCheckboxError.textContent = '';
-//         // toggleSubmitBtnState(true);
-//         return true;
-//     }
-// }
-
-
-// PSEUDO CODE ALIX
-
-// PREMIERE ETAPE TU DISABLED LE BOUTON SUBMIT
-
-// SECONDE ETAPE TU RECUPERES TOUTES LES THIS.VALUE DE CHAQUE ELEMENT ET VERIFIE SI TOUT EST NON NULL OU NON EMPTY ''
-// TROISIEME SI LA SECONDE EST VALIDE ALORS TU DEGRISES LE BTN
-// QUATRIME AU SUBMIT, TU FAIS E.EPREVENT DEFAULT PR ANNULER LENVOI AUTOMATIQUE DU FORMULAIRE
-// CINQUIEME ETAPE TU VERIFIES LA CONFORMITE DES DONNEES DU FORMULAIRE
-// 6. FORM VALIDATOR VERIFIE SI TES DONNES SONT CONFORMES
-// 7. SI DONNE CONFORME TU FAIS FETCH.TON URL TYPE POST AVEC PAYLOAD LES DONNES DU FORMULAIRE
-// 7. BIS SI UNE OU PLUSIEURS DONNE PAS BONNE? TU LEVES LES ERREURS ET DE FAIT TU N4APPELLES PAS LA METHDOE FETCH
