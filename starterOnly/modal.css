@@ -19,7 +19,25 @@
 
 #layout {
   margin: 0 auto;
-  max-width: 1240px;
+  max-width: 1440px;
+}
+
+@media screen and (min-width: 768px) {
+  #layout {
+    max-width: 768px;
+  }
+  h1.hero-headline {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #layout {
+    max-width: 1024px;
+  }
+  h1.hero-headline {
+    font-size: 96px;
+  }
 }
 
 body {
@@ -40,7 +58,6 @@ img {
 }
 
 .topnav {
-  overflow: hidden;
   margin: 40px 0;
   display: flex;
   justify-content: space-between;
@@ -97,7 +114,11 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -122,7 +143,7 @@ img {
 } 
 
 main {
-  font-size: 130%;
+  font-size: 100%;
   font-weight: bolder;
   color: black;
   border-radius: 2rem;
@@ -173,14 +194,14 @@ main {
 
 .bground, .bground-confirm {
   display: none;
-  position: fixed;
+  position: relative;
   z-index: 1;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: rgb(255, 255, 255);
 }
 
 .content, .content-confirm {
@@ -197,9 +218,27 @@ main {
   padding-top: 10px;
 }
 
+.content-confirm {
+  min-height: 850px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-body h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 400;
+}
+
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.content-btn {
+  display: flex;
+  justify-content: center;
 }
 
 label {
@@ -330,7 +369,8 @@ input {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.modal-btn-confirm {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -341,6 +381,12 @@ input {
   cursor: pointer;
   border: 0;
 }
+
+.modal-btn-confirm {
+      position: absolute;
+    bottom: 50px;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -413,24 +459,27 @@ input {
   font-size: 16px;
 }
 .hero-section {
+  width: 100%;
   min-height: 93vh;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
+  /* grid-template-columns: repeat(12, 1fr); */
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 .hero-content {
+  width: 40%;
   grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 100%;
-  padding: 56px;
+  padding: 3rem;
+  /* min-width: 100%;
+  padding: 56px; */
 }
-.hero-content::after {
+/* .hero-content::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -438,15 +487,17 @@ input {
   position: absolute;
   right: -80px;
   top: 0;
-}
+} */
 .hero-content > * {
   position: relative;
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
-  font-weight: normal;
+  font-size: 96px;
+  font-weight: 500;
   white-space: nowrap;
+  word-wrap: break-word;
+  width: 100%;
 }
 .hero-text {
   /* width: 146%; */
@@ -463,8 +514,9 @@ input {
   margin-top: 59px;
 }
 .hero-img {
-  grid-column: span 8;
-  width: 100%;
+  /* grid-column: span 8;
+  width: 100%; */
+  width: 60%;
 }
 .hero-img img {
   width: 100%;
@@ -492,6 +544,10 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    width: 100%;
+  }
+  section.hero-section div {
+    width: 100%;
   }
   .hero-content {
     background: #fff;
@@ -538,4 +594,3 @@ footer {
     opacity: 1;
   }
 }
-
