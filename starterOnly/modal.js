@@ -1,9 +1,10 @@
+// responsif navBar
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  var myTopnav = document.getElementById("myTopnav");
+  if (myTopnav.className === "topnav") {
+    myTopnav.className += " responsive";
   } else {
-    x.className = "topnav";
+    myTopnav.className = "topnav";
   }
 }
 
@@ -16,6 +17,7 @@ const formData = document.querySelectorAll(".formData");
 const header = document.querySelector('header#myTopnav')
 const section = document.querySelector('section.hero-section')
 const footer = document.querySelector('footer')
+const main = document.querySelector('main')
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -23,24 +25,31 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  if (window.screen.width > 799) {
-      section.style.display = 'none';
-      header.style.display = 'none';
-      footer.style.display = 'none';
+  section.style.display = 'none';
+  footer.style.display = 'none';
+  header.style.display = 'flex';
+  main.style.margin = 0;
+  if (window.innerWidth > 1024) {
+      header.style.display = 'none'; 
   }
 }
 
+// hide modal form
 function closeModal() {
-  modalbg.style.display = "none"; // Cacher la fenêtre modale
-  if (window.screen.width > 799) {
-    section.style.display = 'flex';
-    header.style.display = 'flex';
-    footer.style.display = 'block';
-}
+  modalbg.style.display = "none"; 
+  section.style.display = 'flex';
+  header.style.display = 'flex';
+  footer.style.display = 'block';
+  main.style.margin = '0 24px';
 }
 
+// hide confirmation modal
 function closeModalConfirm() {
-  modalbgConfirm.style.display = "none"; // Cacher la fenêtre modale
+  modalbgConfirm.style.display = "none"; 
+  section.style.display = 'flex';
+  header.style.display = 'flex';
+  footer.style.display = 'block';
+  main.style.margin = '0 24px';
 }
 
 

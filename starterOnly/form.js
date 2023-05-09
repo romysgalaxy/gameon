@@ -1,4 +1,4 @@
-//select elements
+//select elements in HTML
 const form = document.getElementById('form');
 const firstName = document.getElementById('first');
 const firstNameError = document.getElementById('firstError');
@@ -19,7 +19,7 @@ const submitBtn = document.getElementById('btn-submit');
 const modal = document.querySelector(".bground");
 const modalConfirm = document.querySelector(".bground-confirm");
 
-// add listener for any input changed
+// add listener for submit button
 form.addEventListener('submit', (e) => isFormValid(e))
 
 // check if input are validated
@@ -91,7 +91,7 @@ function validateTermsCheckbox(termsCheckbox) {
     return false
 }
 
-//check if all input are validated
+//check if all input are valid
 function isFormValid(e) {
     e.preventDefault()
     const isFirstNameValid = validateFirstName(firstName.value)
@@ -110,8 +110,8 @@ function isFormValid(e) {
     console.log('termsCheckbox', termsCheckbox.checked)
     console.log('newsCheckbox', newsCheckbox.checked)
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isTournamentQuantityValid && isLocationValid[0] && isTermsCheckboxValid) {
-        modal.style.display = "none"
-        modalConfirm.style.display = "block"
+        modal.style.display = "none" 
+        modalConfirm.style.display = "block" // display confirmation modal if all input are valid
         console.log('formulaire valide')
     } else {
         console.log('formulaire invalide')
