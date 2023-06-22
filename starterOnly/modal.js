@@ -10,7 +10,7 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBtn = document.querySelectorAll(".btn-signup");
 const modalbgConfirm = document.querySelector(".bground-confirm");
 const modalBtnConfirm = document.querySelectorAll(".modal-btn-confirm");
 const formData = document.querySelectorAll(".formData");
@@ -29,7 +29,7 @@ function launchModal() {
   footer.style.display = 'none';
   header.style.display = 'flex';
   main.style.margin = 0;
-  if (window.innerWidth > 1024) {
+  if (window.innerWidth > 801) {
       header.style.display = 'none'; 
   }
 }
